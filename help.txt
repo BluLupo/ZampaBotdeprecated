@@ -1,0 +1,48 @@
+<b>ZampaBot</b>
+
+<code>Bot in via di sviluppo che emula una IA. [INTERAMENTE IN LINGUA ITALIANA]</code>
+
+<em>Il Bot realizzato da </em> @officialfurryden
+
+
+<b>ALCUNI COMANDI DI ZAMPA</b>
+
+- Ok Zampa / Hey Zampa
+- Zampa lavori per la cia?
+- Zampa barzelletta
+- Come stai Zampa?
+- Che fai Zampa
+- Siri
+- Cortana
+- Zampa cosa pensi di
+- Ciao Zampa
+- Buonasera Zampa
+- Buongiorno
+- Buonanotte
+- Avada Kedavra
+
+
+<b>FUNZIONI DI ZAMPA</b>
+
+- Benvenuto (messaggio di benvenuto)
+- Addio (messaggio quando qualcuno lascia il gruppo)
+- Zampa definisci --> fornisce la definizione da Wikipedia
+
+
+<b>COMANDI ZAMPA</b>
+
+- /nuke [simpatica gif atomica]
+- /ban [integrato con @unifiedban_bot]
+- /regole [mostra le regole del gruppo]
+- /say [fai dire a Zampa cio' che vuoi]
+- /source [display source code]
+- /nsfw [Manda in privato il canale NSFW]
+- /supporto MESSAGGIOSUPPORTO[richiedi supporto]
+
+<b>=============================</b>
+<code>Release info:
+
+v.1.0 - Armadillo
+Source code: /source
+
+dev:</code> @Hersy
