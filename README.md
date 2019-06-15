@@ -40,6 +40,7 @@ Il Bot è stato realizzato per inserirlo in FurryDen
 - /say [fai dire a zampa cio' che vuoi]
 - /source [display source code]
 - /nsfw [mostra canale porno]
+- /canale [mostra canale sfw]
 - @admin tuomessaggio [richiedi supporto]
 
 ==========================
