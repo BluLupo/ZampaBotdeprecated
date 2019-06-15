@@ -1,13 +1,13 @@
-# GoogleHomeBot
-Telegram bot che emula (ironicamente) Google assistant da usare sia in chat privata che in gruppi e supergruppi.
+# ZAMPABOT
+Telegram bot forkato da https://github.com/MikeM2000/GoogleHomeBot
 **[INTERAMENTE IN LINGUA ITALIANA]**
 
-Il Bot è stato realizzato per inserirlo nei gruppi facenti parte del network di [@AOSPItaliaNET](https://t.me/AOSPItaliaNET)
+Il Bot è stato realizzato per inserirlo in FurryDen
 
 
 
 
-## GOOGLE BOT QUESTIONS
+## ZAMPA BOT QUESTIONS
 
 - Ok google / hey google
 - Google lavori per la cia?
@@ -24,7 +24,7 @@ Il Bot è stato realizzato per inserirlo nei gruppi facenti parte del network di
 - Nexus 5x
 
 
-## GOOGLE BOT FUNCTION
+## ZAMPA BOT FUNCTION
 
 - Google definisci <nome> --> fornisce la definizione da Wikipedia
 - /logon --> attiva log dei messaggi inviati
@@ -32,7 +32,7 @@ Il Bot è stato realizzato per inserirlo nei gruppi facenti parte del network di
 - Benvenuto (messaggio di benvenuto)
 - Addio (messaggio quando qualcuno lascia il gruppo)
 
-## GOOGLE BOT COMMANDS
+## ZAMPA BOT COMMANDS
 
 
 - /nuke [ancora in via di sviluppo]
@@ -40,12 +40,11 @@ Il Bot è stato realizzato per inserirlo nei gruppi facenti parte del network di
 - /regole [mostra le regole del network]
 - /say [fai dire a google cio' che vuoi]
 - /source [display source code]
-- /googlepixel [info about pixels]
-- /richiedi [richiedi una funzione/supporto]
+- @admin tuomessaggio [richiedi supporto]
 
 ==========================
 Release info:
 
-- v.1.4.4 - stable
+- v.1.0 - Armadillo
 - dev: @mike_2000 (telegram username)
-
+- redev: @Hersy (telegram username)
