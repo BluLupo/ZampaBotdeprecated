@@ -39,6 +39,7 @@ Il Bot è stato realizzato per inserirlo in FurryDen
 - /regole [mostra le regole del gruppo]
 - /say [fai dire a zampa cio' che vuoi]
 - /source [display source code]
+- /nsfw [mostra canale porno]
 - @admin tuomessaggio [richiedi supporto]
 
 ==========================
