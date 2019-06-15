@@ -9,24 +9,23 @@ Il Bot è stato realizzato per inserirlo in FurryDen
 
 ## ZAMPA BOT QUESTIONS
 
-- Ok google / hey google
-- Google lavori per la cia?
-- Google barzelletta
-- Come stai google?
-- Che fai google
+- Ok zampa / hey zampa
+- zampa lavori per la cia?
+- zampa barzelletta
+- Come stai zampa?
+- Che fai zampa
 - Siri
 - Cortana
-- Google cosa pensi di <nome> 
-- Ciao Google
-- Buonasera Google
+- zampa cosa pensi di <nome> 
+- Ciao zampa
+- Buonasera zampa
 - Buongiorno 
 - Buonanotte
-- Nexus 5x
 
 
 ## ZAMPA BOT FUNCTION
 
-- Google definisci <nome> --> fornisce la definizione da Wikipedia
+- zampa definisci <nome> --> fornisce la definizione da Wikipedia
 - /logon --> attiva log dei messaggi inviati
 - /logoff --> disattiva log messaggi inviati
 - Benvenuto (messaggio di benvenuto)
@@ -35,10 +34,10 @@ Il Bot è stato realizzato per inserirlo in FurryDen
 ## ZAMPA BOT COMMANDS
 
 
-- /nuke [ancora in via di sviluppo]
-- /ban  [da integrare con @unifiedban_bot]
-- /regole [mostra le regole del network]
-- /say [fai dire a google cio' che vuoi]
+- /nuke [simaptica gif atomica]
+- /ban  [integrato con @unifiedban_bot]
+- /regole [mostra le regole del gruppo]
+- /say [fai dire a zampa cio' che vuoi]
 - /source [display source code]
 - @admin tuomessaggio [richiedi supporto]
 
