@@ -153,8 +153,9 @@ def handle(msg):
         # Comando @admin
         if '@admin' in txt:
             var_messaggio = txt
-            var_messaggio = var_messaggio.replace("@admin ", "")
-            bot.sendMessage(chat_id='@zampalog', text="<b>NUOVA RICHIESTA DI SUPPORTO</b>\n<b>Autore:</b> @{}\n<b>ID:</b> {}\n\n<b>Messaggio:</b>\n<code>{}</code>".format(username, user_id, var_messaggio), parse_mode='HTML')
+            var_messaggio = var_messaggio.replace("@admin", "")
+        if txt.startswith("@admin"):
+            bot.sendMessage(-1001130872508, text="<b>NUOVA RICHIESTA DI SUPPORTO</b>\n<b>Autore:</b> @{}\n<b>ID:</b> {}\n\n<b>Messaggio:</b>\n<code>{}</code>".format(username, user_id, var_messaggio), parse_mode='HTML')
             bot.sendMessage(chat_id, text="<code>Richiesta inviata correttamente!</code>", reply_to_message_id=msg_id, parse_mode='HTML')
         # Comando NSFW
         if '/nsfw' in txt:
@@ -233,7 +234,7 @@ def handle(msg):
             bot.sendMessage(chat_id, text='Il numero di membri del gruppo e: <b>{}</b>'.format(bot.getChatMembersCount(chat_id)), parse_mode='HTML')
 
 
-        if txt.upper() == '/CANALE':
+        if txt == "/canale@zampathebot" or txt == "/canale":
             bot.sendMessage(chat_id, text='https://t.me/furrygallery')
 
         if txt == '/feedbackg':
@@ -283,12 +284,12 @@ def handle(msg):
     if content_type == 'new_chat_member':
         new_user = msg["new_chat_member"]["username"]
         print(content_type)
-        bot.sendMessage(chat_id, text="Benvenuto nel Gruppo @{}!\nRicordati di leggere le /regole e buona permanenza\nSe hai domande chiedi pure a me \"cosa puoi fare zampa?\"".format(new_user), parse_mode = 'HTML')
+        bot.sendMessage(chat_id, text="Benvenuto nel Gruppo @{}!\nRicordati di leggere il regolamento digitando /regole e buona permanenza\nSe hai domande chiedi pure a me \"cosa puoi fare zampa?\"\nCanale SFW: /canale\nCanale NSFW: /nsfw\nPer richiedere supporto digita: @admin tuomessaggio".format(new_user), parse_mode = 'HTML')
 
     if content_type == 'left_chat_member' :
         left_user = msg["left_chat_member"]["username"]
         print(content_type)
-        bot.sendMessage(chat_id, text="ADDIO @{}!".format(left_user), parse_mode = 'HTML')
+        bot.sendMessage(chat_id, text="A presto @{}!".format(left_user), parse_mode = 'HTML')
 
 
 
