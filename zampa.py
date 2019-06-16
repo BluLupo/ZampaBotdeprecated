@@ -3,7 +3,8 @@
 # libraries here
 # --------------
 import telepot
-
+from telepot.loop import MessageLoop
+from telepot.namedtuple import InlineKeyboardMarkup, InlineKeyboardButton
 import telegram as telegram
 import random
 import wikipedia
@@ -256,17 +257,24 @@ def handle(msg):
 
         if txt == '/ban':
             bot.sendMessage(chat_id, text='Sei morto esatto!')
+        if txt == '/immagine':
+            bot.sendPhoto(chat_id, 'https://i2.wp.com/furryden.it/wp-content/uploads/2018/07/CHI-SIAMO1_sito.png?ssl=1')    
 
         if txt == '/regole' or txt == '/regole@zampathebot':
            var_regole = open("/root/pythonserver/googlebot/regolamento.txt", "r").read()
            bot.sendMessage(chat_id, text=var_regole, parse_mode = 'HTML')  # here put the file help.txt and write on it wat you want
 
         if '/say' in txt:
-            var_messaggio = txt
-            var_messaggio = var_messaggio.replace("/say ", "")
-            bot.sendMessage(chat_id, text='{}'.format(var_messaggio), parse_mode='HTML')
+            admin_id = open("/root/pythonserver/googlebot/admin.txt", "r").read()
+            admin_id = int(admin_id, 10)
+            command_input = user_id
 
+            if command_input == admin_id:
+                var_messaggio = txt
+                var_messaggio = var_messaggio.replace("/say ", "")
+                bot.sendMessage(chat_id, text='{}'.format(var_messaggio), parse_mode='HTML')
 
+        #TEST DELLA TASTIERA
 
 
 
