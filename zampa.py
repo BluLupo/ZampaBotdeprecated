@@ -94,7 +94,7 @@ def handle(msg):
         if txt.startswith('/'):
             bot.deleteMessage(telepot.message_identifier(msg))
         # FILTRO BESTEMMIE
-        if txt.startswith('porcodio'):
+        if 'porcodio' in txt:
             bot.deleteMessage(telepot.message_identifier(msg))
             bot.sendMessage(chat_id, text="Non si bestemmia!")
         # help command
