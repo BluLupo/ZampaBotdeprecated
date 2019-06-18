@@ -3,13 +3,18 @@
 # libraries here
 # --------------
 import telepot
+import json
+import telepot.aio
 from telepot.loop import MessageLoop
 from telepot.namedtuple import InlineKeyboardMarkup, InlineKeyboardButton
 from glob import glob
+#from botmodules.google import google
 import telegram as telegram
 import random
 import wikipedia
 import time
+import emoji
+import config
 
 
 # print on log.txt file the "localtime" whenever you run the bot
@@ -75,6 +80,7 @@ def handle(msg):
     if content_type == 'text':
         txt = " ".join(msg['text'].split())
         msg_id = msg["message_id"]
+        
 
 
         # start command
@@ -84,7 +90,10 @@ def handle(msg):
                             text="<b>Ciao {}</b>, sono Zampa, la mascotte di questo gruppo mi stanno ancora sviluppando quindi perdonami se non sono efficiente!".format(
 
                                 name), parse_mode = 'HTML')
-
+        # funzione cancella comandi
+        if txt.startswith('/'):
+            bot.deleteMessage(telepot.message_identifier(msg))
+        
         # help command
         # ------------
         if txt == "/help@zampathebot" or txt == "/help" or txt.upper() == "COSA PUOI FARE ZAMPA" or txt.upper() == "COSA PUOI FARE ZAMPA?" or txt.upper() == "ZAMPA COSA PUOI FARE" or txt.upper() == "COSA PUOI FARE":
@@ -169,21 +178,21 @@ def handle(msg):
             var_messaggio = txt
             var_messaggio = var_messaggio.replace("/richiedi", "")
         if txt.startswith("/richiedi"):
-            bot.sendMessage(605363037, text="<b>NUOVA FUNZIONE DEL BOT RICHIESTA</b>\n<b>Autore:</b> @{}\n<b>ID:</b> {}\n\n<b>Messaggio:</b>\n<code>{}</code>".format(username, msg_id, var_messaggio), parse_mode='HTML')
+            bot.sendMessage(605363037, text="<b>NUOVA FUNZIONE DEL BOT RICHIESTA</b>\n<b>Autore:</b> @{}\n<b>ID:</b> {}\n\n<b>Messaggio:</b>\n<code>{}</code>".format(username, user_id, var_messaggio), parse_mode='HTML')
             bot.sendMessage(chat_id, text="<code>Richiesta inviata correttamente!</code>", reply_to_message_id=msg_id, parse_mode='HTML')
         # Comando Discord
         if '/discord' in txt:
             var_messaggio = txt
             var_messaggio = var_messaggio.replace("/discord ", "")
         if txt.startswith("/discord"):
-            bot.sendMessage(user_id, text='https://discord.gg/qhk6H5'.format(username, user_id, var_messaggio), parse_mode='HTML')
+            bot.sendMessage(user_id, text='https://discord.gg/qhk6H5', parse_mode='HTML')
             bot.sendMessage(chat_id, text="Link al server Discord inviato in privato!", reply_to_message_id=msg_id, parse_mode='HTML')
         # Comando NSFW
         if '/nsfw' in txt:
             var_messaggio = txt
             var_messaggio = var_messaggio.replace("/nsfw ", "")
         if txt.startswith("/nsfw"):
-            bot.sendMessage(user_id, text='https://t.me/yiffygallery'.format(username, user_id, var_messaggio), parse_mode='HTML')
+            bot.sendMessage(user_id, text='https://t.me/yiffygallery', parse_mode='HTML')
             bot.sendMessage(chat_id, text="Link al canale inviato in privato!", reply_to_message_id=msg_id, parse_mode='HTML')
 
 
@@ -200,7 +209,9 @@ def handle(msg):
             except:
                 bot.sendMessage(chat_id, text="Mi spiace {}, non ho trovato nulla riguardo '{}'".format(name, var_messaggio))
 
-
+        #Google search
+        
+        
 
         
 
@@ -247,10 +258,10 @@ def handle(msg):
         if txt.upper() == '/SOURCE':
             bot.sendMessage(chat_id, text="<b>     ZampaBot</b>\n"
                                           "====================\n\n"
-                                          "<b>Languages:</b> <em>Italian</em>\n\n"
-                                          "<b>Version</b>:<em> v.1.0 - Armadillo</em>\n\n"
-                                          "<b>By</b>:<em>HerselWeb</em>\n\n"
-                                          "<b>Fork da</b>:  <a href=\"https://github.com/MikeM2000/GoogleHomeBot\">GitHub</a> ", parse_mode = 'HTML')
+                                          "<b>Linguaggio:</b> <em>Python</em>\n\n"
+                                          "<b>Version</b>:<em> v.1.7 - Armadillo</em>\n\n"
+                                          "<b>Riscritto da</b>:<em>HerselWeb</em>\n\n"
+                                          "<b>Forkato da</b>:  <a href=\"https://github.com/MikeM2000/GoogleHomeBot\">MikeM2000</a> ", parse_mode = 'HTML')
 
         if txt.upper() == '/MEMBERS':
             bot.sendMessage(chat_id, text='Il numero di membri del gruppo e: <b>{}</b>'.format(bot.getChatMembersCount(chat_id)), parse_mode='HTML')
@@ -278,13 +289,22 @@ def handle(msg):
 
         if txt == '/ott':
             bot.sendMessage(chat_id, text='Siete degli ottistici!')
-        if txt == '/immagine':
-            bot.sendPhoto(chat_id, 'https://i2.wp.com/furryden.it/wp-content/uploads/2018/07/CHI-SIAMO1_sito.png?ssl=1')    
-        elif txt == '/immagine2':
-            bot.sendPhoto(chat_id, 'https://steamuserimages-a.akamaihd.net/ugc/922556671638253408/0E6A982C72079B28B8CC98BC5A4FCBC03DE2E17B/') 
+        if txt == '/fox':
+            bot.sendMessage(chat_id, text='What Does The Fox Say?')
+        if txt == '/bear':
+            bot.sendMessage(chat_id, text='Dove sta il mio fottuto miele?')
+        # comando card
+        if txt == '/ryan':
+            bot.sendPhoto(chat_id, 'https://furryden.it/immagini/card/ryan.png')    
+        elif txt == '/leo':
+            bot.sendPhoto(chat_id, 'https://furryden.it/immagini/card/andrea.png')
+        elif txt == '/giorgia':
+            bot.sendPhoto(chat_id, 'https://furryden.it/immagini/card/giorgia.jpg')     
+        
         if txt == '/regole' or txt == '/regole@zampathebot':
-           var_regole = open("/root/pythonserver/googlebot/regolamento.txt", "r").read()
-           bot.sendMessage(user_id, text=var_regole, parse_mode = 'HTML')  # here put the file help.txt and write on it wat you want
+           #var_regole = open("/root/pythonserver/googlebot/regolamento.txt", "r").read()
+           #bot.sendMessage(user_id, text=var_regole, parse_mode = 'HTML')  # here put the file help.txt and write on it wat you want
+           bot.sendMessage(user_id, text='https://telegra.ph/Regolamento-di-FurryDen-06-17')
            bot.sendMessage(chat_id, text="<code>Regolamento inviato in privato!</code>", reply_to_message_id=msg_id, parse_mode='HTML')
 
         if '/say' in txt:
@@ -297,15 +317,56 @@ def handle(msg):
                 var_messaggio = var_messaggio.replace("/say ", "")
                 bot.sendMessage(chat_id, text='{}'.format(var_messaggio), parse_mode='HTML')
 
-        #TEST RANDOM
-        img_dir =   {1:'https://i0.wp.com/furryden.it/wp-content/uploads/2017/12/DQ4BlSXVQAAxh2D.jpg-large.jpg?resize=720%2C340&ssl=1',
-                        2:'https://i2.wp.com/furryden.it/wp-content/uploads/2018/07/CHI-SIAMO1_sito.png?ssl=1',
-                        3:'https://i0.wp.com/furryden.it/wp-content/uploads/2018/01/lucca_dall_alto.jpg?resize=526%2C350&ssl=1',
-                        4:'https://i0.wp.com/furryden.it/wp-content/uploads/2018/09/1340769243.thedoctor90125_2012-06-16_-_areosocks_-_ronnie_taylor_reference_sheet.jpg?resize=768%2C576&ssl=1'}
+        #TEST RANDOM 1
+        vid_dir = [
+        'https://media.giphy.com/media/xUA7bepLcQ9IgjGYjm/giphy.gif',
+        'https://media0.giphy.com/media/pceX16v1Pq8g/giphy.gif?cid=790b76115d080bb44c333474362dbe52&rid=giphy.gif',
+        'https://media1.giphy.com/media/5UCieYmJFW2rzcHkab/giphy.gif?cid=790b76115d080c88576741634dfb4268&rid=giphy.gif',
+        #'https://t.me/furrygallery/1350',
+        #'https://t.me/furrygallery/1359',
+        #'https://t.me/furrygallery/1250',
+        #'https://t.me/furrygallery/1300',
+        #'https://t.me/furrygallery/1331',
+        #'https://t.me/furrygallery/1000',
+        #'https://t.me/furrygallery/1104',
+        #'https://t.me/furrygallery/1361',
+        #'https://t.me/furrygallery/1362',
+        #'https://t.me/furrygallery/1343',
+        #'https://t.me/furrygallery/1319',
+        #'https://t.me/furrygallery/1308',
+        #'https://t.me/furrygallery/1286',
+        #'https://t.me/furrygallery/1278',
+        #'https://t.me/furrygallery/1171',
+        #'https://t.me/furrygallery/1172',
+        #'https://t.me/furrygallery/1259',        
+            ]
+        if txt  ==  '/gif':
+            bot.sendVideo(chat_id,  video=random.choice(vid_dir),   caption='{}',  parse_mode='HTML')                       
+        #TEST RANDOM 2
+        img_dir = [
+        'https://t.me/furrygallery/1326',
+        'https://t.me/furrygallery/1328',
+        'https://t.me/furrygallery/1321',
+        'https://t.me/furrygallery/1350',
+        'https://t.me/furrygallery/1359',
+        'https://t.me/furrygallery/1250',
+        'https://t.me/furrygallery/1300',
+        'https://t.me/furrygallery/1331',
+        'https://t.me/furrygallery/1000',
+        'https://t.me/furrygallery/1104',
+        'https://t.me/furrygallery/1361',
+        'https://t.me/furrygallery/1362',
+        'https://t.me/furrygallery/1343',
+        'https://t.me/furrygallery/1319',
+        'https://t.me/furrygallery/1308',
+        'https://t.me/furrygallery/1286',
+        'https://t.me/furrygallery/1278',
+        'https://t.me/furrygallery/1171',
+        'https://t.me/furrygallery/1172',
+        'https://t.me/furrygallery/1259',        
+            ]
         if txt  ==  '/random':
-            bot.sendPhoto(chat_id,  photo=img_dir[random.randint(1, 4)],    caption='TEST')                        
-
-
+            bot.sendPhoto(chat_id,  photo=random.choice(img_dir),   caption='Visita https://t.me/furrygallery per i crediti') 
 
         # check.LOG function
         # ------------------
@@ -332,10 +393,11 @@ def handle(msg):
 # Token and bot main function that keeps it in loop
 # -------------------------------------------------
 
-TOKEN = '728185606:AAGo8FP6WL36aMyhmDU8AwKJDnpaT_wCBXE'
 
-bot = telepot.Bot(TOKEN)
+
+bot = telepot.Bot(config.bot_token)
 bot.message_loop(handle)
 
 while 1:
     time.sleep(10)
+
