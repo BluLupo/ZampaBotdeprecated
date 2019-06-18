@@ -297,14 +297,20 @@ def handle(msg):
         if txt == '/bear':
             bot.sendMessage(chat_id, text='Dove sta il mio fottuto miele?')
         # comando card
-        if txt == '/ryan':
+        if txt == '/ryanking':
             bot.sendPhoto(chat_id, 'https://furryden.it/immagini/card/ryan.png')    
         elif txt == '/leo':
             bot.sendPhoto(chat_id, 'https://furryden.it/immagini/card/andrea.png')
         elif txt == '/giorgia':
-            bot.sendPhoto(chat_id, 'https://furryden.it/immagini/card/giorgia.jpg')
+            bot.sendPhoto(chat_id, 'https://furryden.it/immagini/card/giorgia.png')
         elif txt == '/degron':
-            bot.sendPhoto(chat_id, 'https://furryden.it/immagini/card/degron.png')     
+            bot.sendPhoto(chat_id, 'https://furryden.it/immagini/card/degron.png')
+        elif txt == '/hersy':
+            bot.sendPhoto(chat_id, 'https://furryden.it/immagini/card/hersy.png')
+        elif txt == '/ren':
+            bot.sendPhoto(chat_id, 'https://furryden.it/immagini/card/ren.png')
+        #elif txt == '/miki':
+            #bot.sendPhoto(chat_id, 'https://furryden.it/immagini/card/miki.png')     
         
         if txt == '/regole' or txt == '/regole@zampathebot':
            #var_regole = open("/root/pythonserver/googlebot/regolamento.txt", "r").read()
