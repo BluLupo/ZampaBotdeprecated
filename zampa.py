@@ -93,7 +93,10 @@ def handle(msg):
         # funzione cancella comandi
         if txt.startswith('/'):
             bot.deleteMessage(telepot.message_identifier(msg))
-        
+        # FILTRO BESTEMMIE
+        if txt.startswith('porcodio'):
+            bot.deleteMessage(telepot.message_identifier(msg))
+            bot.sendMessage(chat_id, text="Non si bestemmia!")
         # help command
         # ------------
         if txt == "/help@zampathebot" or txt == "/help" or txt.upper() == "COSA PUOI FARE ZAMPA" or txt.upper() == "COSA PUOI FARE ZAMPA?" or txt.upper() == "ZAMPA COSA PUOI FARE" or txt.upper() == "COSA PUOI FARE":
@@ -299,7 +302,9 @@ def handle(msg):
         elif txt == '/leo':
             bot.sendPhoto(chat_id, 'https://furryden.it/immagini/card/andrea.png')
         elif txt == '/giorgia':
-            bot.sendPhoto(chat_id, 'https://furryden.it/immagini/card/giorgia.jpg')     
+            bot.sendPhoto(chat_id, 'https://furryden.it/immagini/card/giorgia.jpg')
+        elif txt == '/degron':
+            bot.sendPhoto(chat_id, 'https://furryden.it/immagini/card/degron.png')     
         
         if txt == '/regole' or txt == '/regole@zampathebot':
            #var_regole = open("/root/pythonserver/googlebot/regolamento.txt", "r").read()
